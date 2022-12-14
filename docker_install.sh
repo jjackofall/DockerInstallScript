@@ -37,12 +37,15 @@ apt-cache policy docker-ce
 echo -e "\n---- Installing the default docker version ----"
 sudo apt install docker-ce -y
 
+sudo systemctl enable docker
 #--------------------------------------------------
 # Install Docker Compose
 #--------------------------------------------------
 echo -e "\n--- Installing Docker Compose --"
 sudo curl -fsSL https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+
 
 echo "-----------------------------------------------------------"
 echo "Done! The Docker Compose is up and running."
