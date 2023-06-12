@@ -41,7 +41,17 @@ apt-cache policy docker-ce
 echo -e "\n---- Installing the default docker version ----"
 sudo apt install docker-ce -y
 
+#--------------------------------------------------
+# Create Docker group & Add current user to it
+#--------------------------------------------------
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+#--------------------------------------------------
+# Enable Docker for Autorestart
+#--------------------------------------------------
 sudo systemctl enable docker
+
 #--------------------------------------------------
 # Install Docker Compose
 #--------------------------------------------------
