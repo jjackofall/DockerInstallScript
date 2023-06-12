@@ -3,18 +3,22 @@
 # Script for installing Docker and Compose on Ubuntu 16.04, 18.04 and 20.04 (could be used for other version too)
 # Author: Sumit Khanna
 #-------------------------------------------------------------------------------
-# This script will install Docker compose on your Ubuntu 16.04 server.
+# This script will install Docker compose on your Ubuntu server.
 #-------------------------------------------------------------------------------
 # Make a new file:
-# sudo nano docker-install.sh
+# sudo nano docker_install.sh
 # Place this content in it and then make the file executable:
 # sudo chmod +x docker-install.sh
 # Execute the script to install docker:
-# ./docker-install
+# ./docker_install
 ################################################################################
 
+# CURL to get latest version
+latest_version=$(curl --silent "https://api.github.com/repos/docker/compose/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+
 # Variables
-DOCKER_COMPOSE_VERSION="v2.14.0"
+#DOCKER_COMPOSE_VERSION="v2.14.0"
+DOCKER_COMPOSE_VERSION="$latest_version"
 
 #--------------------------------------------------
 # Update Server
